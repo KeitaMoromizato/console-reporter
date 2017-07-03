@@ -1,5 +1,6 @@
 console.log('index.js loaded...');
 
+let hoge = 'msg'
 document.querySelector('#button').addEventListener('click', () => {
-  console.log('click');
+  console.log('clicked');
 });
