@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "console-reporter",
+  "version": "0.0.1",
+  "description": "reoport console",
+  "browser_action": {
+  },
+  "permissions": [
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:8080/*", "https://www.google.co.jp/*"],
+      "js": ["script.js"]
+    }
+  ]
+}
