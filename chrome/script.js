@@ -1,5 +1,7 @@
 function logHandler() {
   function report(level, params) {
+    originalConsole[level](...params);
+
     fetch('http://localhost:3333', {
       method: 'POST',
       mode: 'no-cors',
@@ -8,18 +10,22 @@ function logHandler() {
         level: level,
         messages: [...params]
       })
-    })
+    });
   }
+
+  const originalConsole = {};
 
   const supportLogLevel = ['log', 'debug', 'info', 'warn', 'error'];
   supportLogLevel.forEach(logLevel => {
+    originalConsole[logLevel] = console[logLevel];
+
     console[logLevel] = (...args) => {
-      report(logLevel === 'debug' ? 'log' : logLevel, args)
-    }
+      report(logLevel === 'debug' ? 'log' : logLevel, args);
+    };
   });
   window.onerror = error => {
-    report('error', error.toString())
-  }
+    report('error', error.toString());
+  };
 }
 
 const injectScript = `(${logHandler})()`;
@@ -27,4 +33,4 @@ const injectScript = `(${logHandler})()`;
 // inject script tag
 const script = document.createElement("script");
 script.textContent = injectScript;
-document.head.appendChild(script)
+document.head.appendChild(script);
