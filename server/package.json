@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "console-reporter",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Keita Moromizato <keita.moromi@gmail.com>",
