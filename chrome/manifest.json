@@ -4,9 +4,12 @@
   "version": "0.0.1",
   "description": "reoport console",
   "browser_action": {
+    "default_title": "console-reporter",
+    "default_popup": "options.html"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ],
   "content_scripts": [
     {
