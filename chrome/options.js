@@ -20,6 +20,7 @@ document.querySelector('#save_button').addEventListener('click', () => {
   const enabled = document.querySelector('#enable_button').checked;
 
   chrome.storage.sync.set(Object.assign({}, data, { enabled }), () => {
-    alert('ok');
+    chrome.tabs.reload();
+    window.close();
   });
 });
