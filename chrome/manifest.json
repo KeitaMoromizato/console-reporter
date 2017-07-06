@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
   "name": "console-reporter",
-  "version": "0.0.1",
-  "description": "reoport console",
+  "version": "0.1.0",
+  "description": "Chrome extension for send browser log to terminal.",
   "browser_action": {
     "default_title": "console-reporter",
     "default_popup": "options.html"
@@ -13,7 +13,7 @@
   ],
   "content_scripts": [
     {
-      "matches": ["http://localhost:8080/*", "https://www.google.co.jp/*"],
+      "matches": ["http://localhost/*", "https://0.0.0.0/*"],
       "js": ["script.js"]
     }
   ]

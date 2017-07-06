@@ -2,7 +2,7 @@ const logLevel = ['log', 'debug', 'info', 'warn', 'error'];
 
 function logHandler(supportLogLevel) {
   function report(level, params) {
-//    originalConsole[level](...params);
+    originalConsole[level](...params);
 
     fetch('http://localhost:3333', {
       method: 'POST',

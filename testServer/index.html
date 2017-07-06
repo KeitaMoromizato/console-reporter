@@ -5,10 +5,15 @@
   </head>
   <body>
     <h1>Test Server</h1>
-    <button id="button" onclick="console.debug('debug')">debug</button>
-    <button id="button" onclick="console.log('log')">log</button>
-    <button id="button" onclick="console.info('info')">info</button>
-    <button id="button" onclick="console.warn('warn')">warn</button>
-    <button id="button" onclick="console.error('error')">error</button>
+    <button id="debug_button">debug</button>
+    <button id="log_button">log</button>
+    <button id="info_button">info</button>
+    <button id="warn_button">warn</button>
+    <button id="error_button">error</button>
   </body>
+  <script>
+    ['debug', 'log', 'info', 'warn', 'error'].forEach(level => {
+      document.querySelector(`#${level}_button`).addEventListener('click', () => console[level](level));
+    });
+  </script>
 </html>
